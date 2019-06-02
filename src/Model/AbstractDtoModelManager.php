@@ -47,7 +47,7 @@ abstract class AbstractDtoModelManager extends ModelManager
             $this->getEntityManager($object)->persist($instance);
             $this->getEntityManager($object)->flush();
 
-            $object->id = $instance->getId();
+            $object->setId($instance->getId());
         } catch (\PDOException $e) {
             throw new ModelManagerException(
                 sprintf('Failed to create object: %s', ClassUtils::getClass($object)),
