@@ -1,0 +1,21 @@
+{
+  "name": "jarjobs/sonatadtomodelmanager",
+  "description": "Bundle for handling Sonata Admin form data with data-transfer-object instead of entity",
+  "keywords": [
+    "sonata admin",
+    "dto",
+    "model manager"
+  ],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1",
+    "sonata-project/admin-bundle": "^3.48",
+    "sonata-project/doctrine-orm-admin-bundle": "^3.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "JarJobs\\SonataDtoModelManager\\": "src/"
+    }
+  }
+}
