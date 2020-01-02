@@ -91,6 +91,11 @@ abstract class AbstractDtoModelManager extends ModelManager
         }
     }
 
+    public function delete($object): void
+    {
+        parent::delete($this->getRepository()->find((string) $object->getId()));
+    }
+
     public function getModelInstance($class)
     {
         return $this->doGetModelInstance($class);
