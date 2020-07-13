@@ -63,7 +63,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         }
     }
 
-    public function update($object)
+    public function update($object): void
     {
         try {
             // TODO: if $object->getId() is null
