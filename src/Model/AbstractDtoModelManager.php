@@ -173,7 +173,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $repository;
     }
 
-    public function getNormalizedIdentifier(object $entity)
+    public function getNormalizedIdentifier(object $entity): ?string
     {
         if (is_scalar($entity)) {
             throw new \RuntimeException('Invalid argument, object or null required');
