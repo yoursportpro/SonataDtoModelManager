@@ -39,7 +39,7 @@ abstract class AbstractDtoModelManager extends ModelManager
      */
     abstract protected function buildDto($entity);
 
-    public function create($object): void
+    public function create(object $object): void
     {
         try {
             $instance = $this->doCreate($object);
@@ -63,7 +63,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         }
     }
 
-    public function update($object): void
+    public function update(object $object): void
     {
         try {
             // TODO: if $object->getId() is null
@@ -91,12 +91,12 @@ abstract class AbstractDtoModelManager extends ModelManager
         }
     }
 
-    public function getModelInstance($class)
+    public function getModelInstance(string $class)
     {
         return $this->doGetModelInstance($class);
     }
 
-    public function getExportFields($class): array
+    public function getExportFields(string $class): array
     {
         $metadata = $this->getEntityManager($this->getSubjectClass())->getClassMetadata($this->getSubjectClass());
 
@@ -136,7 +136,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return new ProxyQuery($repository->createQueryBuilder($alias));
     }
 
-    public function find($class, $id)
+    public function find(string $class, $id): ?object
     {
         if (empty($id)) {
             return null;
@@ -148,12 +148,12 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $this->buildDto($entity);
     }
 
-    public function findBy($class, array $criteria = []): array
+    public function findBy(string $class, array $criteria = []): array
     {
         return $this->getRepository()->findBy($criteria);
     }
 
-    public function findOneBy($class, array $criteria = [])
+    public function findOneBy(string $class, array $criteria = [])
     {
         return $this->getRepository()->findOneBy($criteria);
     }
@@ -171,7 +171,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $repository;
     }
 
-    public function getNormalizedIdentifier($entity)
+    public function getNormalizedIdentifier(object $entity)
     {
         if (is_scalar($entity)) {
             throw new \RuntimeException('Invalid argument, object or null required');
