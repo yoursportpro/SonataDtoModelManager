@@ -9,6 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityRepository;
+use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Exception\ModelManagerException;
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 use Sonata\DoctrineORMAdminBundle\Model\ModelManager;
@@ -124,7 +125,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $this->getEntityManager($this->getSubjectClass())->getMetadataFactory()->hasMetadataFor($this->getSubjectClass());
     }
 
-    public function createQuery(string $class, $alias = 'o'): ProxyQuery
+    public function createQuery(string $class, $alias = 'o'): ProxyQueryInterface
     {
         $repository = $this
             ->getEntityManager($this->getSubjectClass())
