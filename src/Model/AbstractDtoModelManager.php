@@ -93,7 +93,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         }
     }
 
-    public function getModelInstance(string $class)
+    public function getModelInstance(string $class): object
     {
         return $this->doGetModelInstance($class);
     }
