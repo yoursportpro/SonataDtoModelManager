@@ -124,7 +124,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $this->getEntityManager($this->getSubjectClass())->getMetadataFactory()->hasMetadataFor($this->getSubjectClass());
     }
 
-    public function createQuery($class, $alias = 'o'): ProxyQuery
+    public function createQuery(string $class, $alias = 'o'): ProxyQuery
     {
         $repository = $this
             ->getEntityManager($this->getSubjectClass())
