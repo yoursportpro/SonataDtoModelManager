@@ -180,13 +180,13 @@ abstract class AbstractDtoModelManager extends ModelManager
         }
 
         if (!$entity || is_array($entity) || is_null($entity->getId())) {
-            return;
+            return null;
         }
 
         $values = [$entity->getId()];
 
         if (count($values) === 0) {
-            return;
+            return null;
         }
 
         return implode(self::ID_SEPARATOR, $values);
