@@ -153,7 +153,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $this->getRepository()->findBy($criteria);
     }
 
-    public function findOneBy(string $class, array $criteria = [])
+    public function findOneBy(string $class, array $criteria = []): ?object
     {
         return $this->getRepository()->findOneBy($criteria);
     }
