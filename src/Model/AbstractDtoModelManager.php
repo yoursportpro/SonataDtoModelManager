@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace JarJobs\SonataDtoModelManager\Model;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\Mapping\ClassMetadata;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\Util\ClassUtils;
@@ -103,7 +104,7 @@ abstract class AbstractDtoModelManager extends ModelManager
         return $metadata->getFieldNames();
     }
 
-    public function getEntityManager($class): ObjectManager
+    public function getEntityManager($class): EntityManagerInterface
     {
         return parent::getEntityManager($this->getSubjectClass());
     }
